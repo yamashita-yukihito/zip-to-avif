@@ -305,7 +305,7 @@ def main():
     dir_path = to_wsl_path(sys.argv[1])
     quality = sys.argv[2] if len(sys.argv) > 2 else '75'
     workers = sys.argv[3] if len(sys.argv) > 3 else '4'
-    max_size = sys.argv[4] if len(sys.argv) > 4 else '2000'
+    max_size = sys.argv[4] if len(sys.argv) > 4 else '2160'
 
     if not os.path.isdir(dir_path):
         print(f"Error: not a directory: {dir_path}")

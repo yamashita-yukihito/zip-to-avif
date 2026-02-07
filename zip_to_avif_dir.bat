@@ -15,7 +15,7 @@ if not exist "%~1\" (
 echo Directory: %~1
 echo.
 
-wsl python3 ~/bin/zip_to_avif_dir.py "%~1" 70 4 2000
+wsl python3 ~/bin/zip_to_avif_dir.py "%~1" 70 4 2160
 
 echo.
 pause

@@ -111,8 +111,8 @@ python3 zip_to_webp_dir.py <ディレクトリ> [品質] [並列数] [最大辺p
 # 単体: 品質75でWebP変換
 python3 zip_to_webp.py input.zip output.zip 75
 
-# ディレクトリ一括: 品質75、並列4、長辺2000px以内
-python3 zip_to_webp_dir.py /path/to/dir 75 4 2000
+# ディレクトリ一括: 品質75、並列4、長辺2160px以内
+python3 zip_to_webp_dir.py /path/to/dir 75 4 2160
 ```
 
 ---

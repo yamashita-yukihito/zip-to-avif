@@ -25,7 +25,7 @@ echo Input:  %INPUT%
 echo Output: %OUTPUT%
 echo.
 
-wsl python3 ~/bin/zip_to_webp.py "%INPUT%" "%OUTPUT%" 75 4 2000
+wsl python3 ~/bin/zip_to_webp.py "%INPUT%" "%OUTPUT%" 75 4 2160
 
 echo.
 pause
