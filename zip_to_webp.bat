@@ -20,12 +20,12 @@ exit /b
 
 :OK
 set "INPUT=%~1"
-set "OUTPUT=%~dpn1_avif.zip"
+set "OUTPUT=%~dpn1_webp.zip"
 echo Input:  %INPUT%
 echo Output: %OUTPUT%
 echo.
 
-wsl python3 ~/bin/zip_to_avif_gpu.py "%INPUT%" "%OUTPUT%" 70 4 2160
+wsl python3 ~/bin/zip_to_webp.py "%INPUT%" "%OUTPUT%" 75 4 2000
 
 echo.
 pause
