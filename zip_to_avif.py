@@ -14,6 +14,17 @@ IMAGE_EXTS = {'jpg', 'jpeg', 'png', 'webp', 'bmp'}
 ARCHIVE_EXTS = {'zip', 'rar', '7z', 'cbz', 'cbr'}
 
 
+def to_wsl_path(p):
+    """Windowsパスを自動的にWSLパスに変換"""
+    import re
+    m = re.match(r'^([A-Za-z]):[/\\]', p)
+    if m:
+        drive = m.group(1).lower()
+        rest = p[3:].replace('\\', '/')
+        return f'/mnt/{drive}/{rest}'
+    return p
+
+
 def extract_archive(src, dest_dir):
     """アーカイブを展開（zip/rar/7z対応）"""
     ext = src.rsplit('.', 1)[-1].lower() if '.' in src else ''
@@ -37,8 +48,8 @@ if len(sys.argv) < 4:
     print("  最大辺: 長辺がこのpxを超える画像を縮小（デフォルト3000、0で無効）")
     sys.exit(1)
 
-SRC = sys.argv[1]
-DST = sys.argv[2]
+SRC = to_wsl_path(sys.argv[1])
+DST = to_wsl_path(sys.argv[2])
 QUALITY = int(sys.argv[3])
 MAX_SIZE = int(sys.argv[4]) if len(sys.argv) > 4 else 3000
 

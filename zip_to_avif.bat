@@ -1,7 +1,8 @@
 @echo off
+
 if "%~1"=="" (
-    echo アーカイブファイルをこのバッチファイルにドラッグ＆ドロップしてください。
-    echo 対応形式: zip, rar, 7z, cbz, cbr
+    echo Drag and drop an archive file onto this bat file.
+    echo Supported: zip, rar, 7z, cbz, cbr
     pause
     exit /b
 )
@@ -12,15 +13,19 @@ if /i "%EXT%"==".rar" goto OK
 if /i "%EXT%"==".7z" goto OK
 if /i "%EXT%"==".cbz" goto OK
 if /i "%EXT%"==".cbr" goto OK
-echo エラー: 未対応の形式です (%EXT%)
-echo 対応形式: zip, rar, 7z, cbz, cbr
+echo ERROR: Unsupported format (%EXT%)
+echo Supported: zip, rar, 7z, cbz, cbr
 pause
 exit /b
 
 :OK
 set "INPUT=%~1"
 set "OUTPUT=%~dpn1_avif.zip"
-echo 入力: %INPUT%
-echo 出力: %OUTPUT%
+echo Input:  %INPUT%
+echo Output: %OUTPUT%
+echo.
+
 wsl python3 ~/bin/zip_to_avif_gpu.py "%INPUT%" "%OUTPUT%" 75
+
+echo.
 pause
