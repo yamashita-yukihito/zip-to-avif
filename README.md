@@ -28,18 +28,19 @@ cp zip_to_avif.py zip_to_avif_gpu.py ~/bin/
 
 ## CPU版: zip_to_avif.py
 
-Pillow + pillow-avif-plugin を使用。ZIPのみ対応。
+Pillow + pillow-avif-plugin を使用。ZIP/RAR/7z/CBZ/CBR対応。
 
 ### 必要なもの
 
 ```bash
 pip install Pillow pillow-avif-plugin
+sudo apt install p7zip-full unar
 ```
 
 ### 使い方
 
 ```bash
-python3 zip_to_avif.py <入力ZIP> <出力ZIP> <品質> [最大辺px]
+python3 zip_to_avif.py <入力アーカイブ> <出力ZIP> <品質> [最大辺px]
 ```
 
 ### 例
